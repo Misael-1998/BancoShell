@@ -1,34 +1,27 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BancoShell.Modelos
 {
     class Mostrar
     {
-        ArrayList Lista;
+        List<Cliente> Lista;
 
         public Mostrar()
         {
-            Lista = new ArrayList();
+            Lista = new List<Cliente>();
         }
 
         public void CapturaDatos()
         {
             int cantidad;
             string nombre;
-            int cantidadCuenta;
-            double cuenta;
             Console.WriteLine("Ingrese la candtidad de nombres que decea");
             cantidad = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ingrese los nombres deseados");
             for (int i = 0; i < cantidad; i++)
             {
-                Console.WriteLine("Ingrese los nombres deseados");
-                nombre = Console.ReadLine();
-                Lista.Add(nombre);
-
-              
+                Lista.Add(new Cliente(Console.ReadLine()));
             }
            
         }
@@ -37,15 +30,13 @@ namespace BancoShell.Modelos
 
         public void ImprimirDatos()
         {
-            foreach (var nombres in Lista)
+            Console.WriteLine("Estos son los nombres ingresados");
+            foreach (Cliente item in Lista)
             {
-                Console.WriteLine("Estos son los nombres ingresados");
-                Console.WriteLine(nombres);
-               
-
+                Console.WriteLine(item.Nombre);
             }
+
             Console.ReadKey();
         }
-      
     }
 }

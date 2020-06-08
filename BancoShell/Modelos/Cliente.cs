@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace BancoShell.Modelos
 {
     public class Cliente
@@ -16,9 +13,5 @@ namespace BancoShell.Modelos
         {
             Nombre = nombre;
         }
-
-
-
-
     }
 }
