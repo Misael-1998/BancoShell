@@ -16,15 +16,16 @@ namespace BancoShell.Controllers
         public void CapturaDatos()
         {
             int cantidad;
-            string nombre;
-            Console.WriteLine("Ingrese la candtidad de nombres que decea");
-            cantidad = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Ingrese los nombres deseados");
-            for (int i = 0; i < cantidad; i++)
-            {
-                Lista.Add(new Cliente(Console.ReadLine()));
-            }
-
+            
+            Console.WriteLine("Ingrese la candtidad de nombres que decea\n");
+            cantidad=Convert.ToInt32(Console.ReadLine());
+           
+            
+                for (int i = 0; i < cantidad; i++)
+                {
+                     Console.WriteLine("Ingrese los nombres deseados");
+                    Lista.Add(new Cliente(Console.ReadLine()));
+                }
         }
 
 
@@ -34,9 +35,11 @@ namespace BancoShell.Controllers
             Console.WriteLine("Estos son los nombres ingresados");
             foreach (Cliente item in Lista)
             {
-                Console.WriteLine(item.Nombre);
+                Console.WriteLine(item.Nombre+"\n");
+               
             }
-
+            Console.WriteLine("\nPresione la letra s para regresar al menu\n");
+            Console.WriteLine("\n \n");
             Console.ReadKey();
         }
     }

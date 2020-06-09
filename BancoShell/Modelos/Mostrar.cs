@@ -15,10 +15,11 @@ namespace BancoShell.Modelos
         public void CapturaDatos()
         {
             int cantidad;
-            string nombre;
-            Console.WriteLine("Ingrese la candtidad de nombres que decea");
+          
+            Console.WriteLine("Ingrese la candtidad de clientes que desea registrar");
             cantidad = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Ingrese los nombres deseados");
+           
+            Console.WriteLine("Ingrese el nombre de los clientes");
             for (int i = 0; i < cantidad; i++)
             {
                 Lista.Add(new Cliente(Console.ReadLine()));
