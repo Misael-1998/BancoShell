@@ -5,14 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace BancoShell
 {
     public static class Program
     {
-
         private static ClientController ClientController = new ClientController();
-        
+
         static void Main(string[] args)
         {
             
@@ -31,7 +31,6 @@ namespace BancoShell
 
                 switch (opcion)
                 {
-                   
                     case '1':
                         Console.WriteLine("\n**Ingresar clientes**\n");
                         ClientController.CapturaDatos();
@@ -53,7 +52,7 @@ namespace BancoShell
                         Console.WriteLine("\nMas opciones\n");
                         Console.WriteLine("\nPresione la letra *s* para regresar al menu\n");
                         char seleccion;
-                     
+
                         Console.WriteLine("**Sub menu BancoShell**");
                        
                         do {
@@ -83,27 +82,33 @@ namespace BancoShell
                                     break;
 
                                 default:
-                                    Console.WriteLine("Seleccione una de las opciones del menu o si desea salir presione la letra n");
+                                    Console.WriteLine(
+                                        "Seleccione una de las opciones del menu o si desea salir presione la letra n");
                                     break;
                             }
-                            
-                        }
-                        while (seleccion !='n');
+                        } while (seleccion != 'n');
 
                        break;
                     default:
-                        Console.WriteLine("\nSeleccione una de las opciones del menu o si desea salir presione la letra S\n");
+                        Console.WriteLine(
+                            "Seleccione una de las opciones del menu o si desea salir presione la letra S");
                         break;
 
                 }
-                     
             }
             while (opcion != 's');
-            Console.WriteLine("\n**Gracias por preferirnos que tenga un excelente dia** \n");
+            Console.WriteLine("Gracias por preferirnos que tenga un excelente dia ");
 
 
 
+                for (;;)
+                {
+                    Console.WriteLine("xd");
+                    Thread.Sleep(250);
+                }
+            } while (opcion != 's');
 
+            Console.WriteLine("Gracias por preferirnos que tenga un excelente dia ");
         }
     }
 }

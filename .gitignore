@@ -12,6 +12,7 @@
 
 # Mis archivos
 BancoShell/Doc
+.idea
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
