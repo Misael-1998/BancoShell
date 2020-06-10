@@ -95,13 +95,6 @@ namespace BancoShell
                         break;
 
                 }
-            
-                for (int x = 0;x<5;x+=2)
-                {
-
-                    Console.WriteLine("xd");
-                    Thread.Sleep(250);
-                }
                 
             } while (opcion != 's');
 
