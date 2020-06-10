@@ -19,39 +19,38 @@ namespace BancoShell.Controllers
             int numerosClientes;
             Console.WriteLine("Ingrese la candtidad de nombres que decea\n");
             cantidad = Console.ReadLine();
-            try
+            if (int.TryParse(cantidad, out numerosClientes))
             {
-                numerosClientes = int.Parse(cantidad);
+                for (int i = 0; i < numerosClientes; i++)
+                {
+                    Console.WriteLine("Ingrese los nombres deseados");
+                    Lista.Add(new Cliente(Console.ReadLine()));
+                }
             }
-            catch (FormatException)
-            {
-                Console.WriteLine("Ingrese un valor numerico");
-                return;
+            else {
+                Console.WriteLine("Ingrese un un valor numerico ");            
             }
 
-            for (int i = 0; i < numerosClientes; i++)
-            {
-                Console.WriteLine("Ingrese los nombres deseados");
-                Lista.Add(new Cliente(Console.ReadLine()));
-            }
+
+
         }
 
-    
 
 
 
-    public void ImprimirDatos()
-    {
-        Console.WriteLine("Estos son los nombres ingresados");
-        foreach (Cliente item in Lista)
+
+        public void ImprimirDatos()
         {
-            Console.WriteLine(item.Nombre + "\n");
+            Console.WriteLine("Estos son los nombres ingresados");
+            foreach (Cliente item in Lista)
+            {
+                Console.WriteLine(item.Nombre + "\n");
 
+            }
+            Console.WriteLine("\nPresione la letra s para regresar al menu\n");
+            Console.WriteLine("\n \n");
+            Console.ReadKey();
         }
-        Console.WriteLine("\nPresione la letra s para regresar al menu\n");
-        Console.WriteLine("\n \n");
-        Console.ReadKey();
     }
-}
 }
 

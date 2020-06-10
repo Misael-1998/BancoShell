@@ -96,11 +96,13 @@ namespace BancoShell
 
                 }
             
-                for (;;)
+                for (int x = 0;x<5;x+=2)
                 {
+
                     Console.WriteLine("xd");
                     Thread.Sleep(250);
                 }
+                
             } while (opcion != 's');
 
             Console.WriteLine("Gracias por preferirnos que tenga un excelente dia ");
