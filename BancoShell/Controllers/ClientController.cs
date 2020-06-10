@@ -8,40 +8,50 @@ namespace BancoShell.Controllers
     {
         List<Cliente> Lista;
 
-        public  ClientController()
+        public ClientController()
         {
             Lista = new List<Cliente>();
         }
 
         public void CapturaDatos()
         {
-            int cantidad;
-            
+            string cantidad;
+            int numerosClientes;
             Console.WriteLine("Ingrese la candtidad de nombres que decea\n");
-            cantidad=Convert.ToInt32(Console.ReadLine());
-           
-            
-                for (int i = 0; i < cantidad; i++)
-                {
-                     Console.WriteLine("Ingrese los nombres deseados");
-                    Lista.Add(new Cliente(Console.ReadLine()));
-                }
-        }
-
-
-
-        public void ImprimirDatos()
-        {
-            Console.WriteLine("Estos son los nombres ingresados");
-            foreach (Cliente item in Lista)
+            cantidad = Console.ReadLine();
+            try
             {
-                Console.WriteLine(item.Nombre+"\n");
-               
+                numerosClientes = int.Parse(cantidad);
             }
-            Console.WriteLine("\nPresione la letra s para regresar al menu\n");
-            Console.WriteLine("\n \n");
-            Console.ReadKey();
+            catch (FormatException)
+            {
+                Console.WriteLine("Ingrese un valor numerico");
+                return;
+            }
+
+            for (int i = 0; i < numerosClientes; i++)
+            {
+                Console.WriteLine("Ingrese los nombres deseados");
+                Lista.Add(new Cliente(Console.ReadLine()));
+            }
         }
+
+    
+
+
+
+    public void ImprimirDatos()
+    {
+        Console.WriteLine("Estos son los nombres ingresados");
+        foreach (Cliente item in Lista)
+        {
+            Console.WriteLine(item.Nombre + "\n");
+
+        }
+        Console.WriteLine("\nPresione la letra s para regresar al menu\n");
+        Console.WriteLine("\n \n");
+        Console.ReadKey();
     }
+}
 }
 

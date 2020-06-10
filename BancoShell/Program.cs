@@ -95,12 +95,7 @@ namespace BancoShell
                         break;
 
                 }
-            }
-            while (opcion != 's');
-            Console.WriteLine("Gracias por preferirnos que tenga un excelente dia ");
-
-
-
+            
                 for (;;)
                 {
                     Console.WriteLine("xd");
