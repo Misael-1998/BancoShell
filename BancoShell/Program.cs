@@ -95,7 +95,7 @@ namespace BancoShell
                         break;
 
                 }
-            
+
                 
             } while (opcion != 's');
 
