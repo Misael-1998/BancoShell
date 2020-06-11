@@ -83,7 +83,7 @@ namespace BancoShell
 
                                 default:
                                     Console.WriteLine(
-                                        "Seleccione una de las opciones del menu o si desea salir presione la letra n");
+                                        "\nSeleccione una de las opciones del menu o si desea salir presione la letra n\n");
                                     break;
                             }
                         } while (seleccion != 'n');
