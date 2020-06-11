@@ -91,21 +91,15 @@ namespace BancoShell
                        break;
                     default:
                         Console.WriteLine(
-                            "Seleccione una de las opciones del menu o si desea salir presione la letra S");
+                            "\nSeleccione una de las opciones del menu o si desea salir presione la letra S\n");
                         break;
 
                 }
             
-                for (int x = 0;x<5;x+=2)
-                {
-
-                    Console.WriteLine("xd");
-                    Thread.Sleep(250);
-                }
                 
             } while (opcion != 's');
 
-            Console.WriteLine("Gracias por preferirnos que tenga un excelente dia ");
+            Console.WriteLine("\nGracias por preferirnos que tenga un excelente dia \n");
         }
     }
 }
