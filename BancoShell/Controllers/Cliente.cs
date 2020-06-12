@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BancoShell.Controllers
+namespace BancoShell.Views
 {
     class Cliente
     {

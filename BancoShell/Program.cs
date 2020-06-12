@@ -1,4 +1,4 @@
-﻿using BancoShell.Controllers;
+﻿using BancoShell.Views;
 using BancoShell.Modelos;
 using System;
 using System.Collections;
@@ -6,35 +6,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Xml.Serialization;
 
 namespace BancoShell
 {
     public static class Program
     {
-        private static ClientController ClientController = new ClientController();
+        private static Menu MainMenu = new Menu(5);
 
         static void Main(string[] args)
         {
-            
-            char opcion;
             Console.WriteLine("**\nBienvenido a BancoShell es un gusto atendederle\n**");
+            MainMenu.TryAddOption("Ingresar clientes",0);
+            MainMenu.TryAddOption("Abrir cuentas",1);
+            MainMenu.TryAddOption("Ingresar dinero",2);
+            MainMenu.TryAddOption("Mas opciones",3);
+            MainMenu.TryAddOption("Salir",4);
+            int opcion;
             do
             {
-             Console.WriteLine("\nSi usted desea salir del menu solo escriba la letra *s*\n");
-             Console.WriteLine("** Menu BancoSehell **\n"+
-                    "\n-Ingresar clientes-Opcion *1*\n"+
-                    "\n-Abrir cuentas-Opcion *2*\n"+
-                    "\n-Ingresar dinero-Opcion *3*\n"+
-                    "\n-Mas opciones-Opcion *4*\n");
-               
-                opcion = Console.ReadKey().KeyChar;
+                MainMenu.CaptureOption();
+                opcion = MainMenu.CaptureOption() ?? -1;
 
                 switch (opcion)
                 {
                     case '1':
                         Console.WriteLine("\n**Ingresar clientes**\n");
-                        ClientController.CapturaDatos();
-                        ClientController.ImprimirDatos();
+                        
                         break;
 
                     case '2':
@@ -54,11 +52,12 @@ namespace BancoShell
                         char seleccion;
 
                         Console.WriteLine("**Sub menu BancoShell**");
-                       
-                        do {
+
+                        do
+                        {
                             Console.WriteLine("\n-Transferir cuentas-Opcion *1*" +
                            "\n-Calcular capital-Opcion *2*" +
-                           "\nCambiar la tasa de intereses-Opcion *3*"+
+                           "\nCambiar la tasa de intereses-Opcion *3*" +
                            "\n-Salir-Ingrese la letra n");
                             seleccion = Console.ReadKey().KeyChar;
                             switch (seleccion)
@@ -88,7 +87,7 @@ namespace BancoShell
                             }
                         } while (seleccion != 'n');
 
-                       break;
+                        break;
                     default:
                         Console.WriteLine(
                             "\nSeleccione una de las opciones del menu o si desea salir presione la letra S\n");
@@ -96,10 +95,10 @@ namespace BancoShell
 
                 }
 
-                
-            } while (opcion != 's');
 
-            Console.WriteLine("\nGracias por preferirnos que tenga un excelente dia \n");
+            } while (opcion !=5 );
+              Console.WriteLine("\nGracias por preferirnos que tenga un excelente dia \n");
         }
+
     }
 }
