@@ -8,7 +8,7 @@ namespace BancoShell.Views
     {
 
         public string Name { get; set; } = "Menu";
-        private string[] Options { get; } = { "salir" };
+        protected string[] Options { get; } = { "salir" };
         public int NumberOfOptions
         {
             get => Options.Length;
@@ -23,11 +23,11 @@ namespace BancoShell.Views
         public bool TryAddOption(string optionName, int posicition)
         {
             if (posicition < 0 || posicition >= Options.Length) return false;
-            Options[posicition] = optionName;
+            Options[posicition] = $"{posicition + 1}-{optionName}";
             return true;
         }
 
-        private void ShowMenu()
+        protected virtual void ShowMenu()
         {
             Console.WriteLine(Name);
             for (int i = 0; i < Options.Length; i++)
@@ -37,7 +37,7 @@ namespace BancoShell.Views
 
         }
 
-        public int?  CaptureOption()
+        public int? CaptureOption()
         {
             ShowMenu();
             string option;
@@ -46,7 +46,7 @@ namespace BancoShell.Views
             option = Console.ReadLine();
             if (int.TryParse(option, out optionNumber))
             {
-                return optionNumber;
+                return optionNumber - 1;
             }
             else
             {
